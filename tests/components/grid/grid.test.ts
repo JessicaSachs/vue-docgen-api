@@ -19,32 +19,32 @@ describe('tests grid', () => {
   })
 
   it('should the component has tags', () => {
-    expect(typeof docGrid.tags !== 'undefined').toBe(true)
+    expect(docGrid.tags).not.toBeUndefined()
   })
 
   it('should the component has authors', () => {
-    expect(typeof docGrid.tags.author !== 'undefined').toBe(true)
+    expect(docGrid.tags.author).not.toBeUndefined()
   })
 
   it('should the component has description', () => {
-    expect(typeof docGrid.description !== 'undefined').toBe(true)
+    expect(docGrid.description).not.toBeUndefined()
   })
 
   it('should has methods', () => {
-    expect(typeof docGrid.methods !== 'undefined').toBe(true)
+    expect(docGrid.methods).not.toBeUndefined()
   })
 
   it('should return one method for the component', () => {
-    expect(docGrid.methods.length).toEqual(1)
+    expect(Object.keys(docGrid.methods).length).toEqual(1)
   })
 
   it('should return one param for this method', () => {
-    const params = docGrid.methods[0].params
+    const params = docGrid.methods.sortBy.params
     expect(params !== undefined ? params.length : 0).toEqual(1)
   })
 
   it('should return the correct object for this param', () => {
-    expect(docGrid.methods[0].params).toMatchObject([
+    expect(docGrid.methods.sortBy.params).toMatchObject([
       {
         name: 'key',
         description: 'Key to order',

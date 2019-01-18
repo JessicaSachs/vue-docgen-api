@@ -45,7 +45,7 @@ export default function parse(source: string, filePath: string): ComponentDoc {
     : {
         displayName: '',
         description: '',
-        methods: [],
+        methods: {},
         props: undefined,
         slots: {},
         tags: {},

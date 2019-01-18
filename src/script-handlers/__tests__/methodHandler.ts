@@ -52,11 +52,7 @@ describe('methodHandler', () => {
       }
     }`
     tester(src, {
-      methods: [
-        {
-          name: 'testPublic',
-        },
-      ],
+      methods: { testPublic: {} },
     })
   })
 
@@ -90,17 +86,11 @@ describe('methodHandler', () => {
     }
     `
     tester(src, {
-      methods: [
-        {
-          name: 'testFunction',
-        },
-        {
-          name: 'testMethod',
-        },
-        {
-          name: 'testArrowFunction',
-        },
-      ],
+      methods: {
+        testFunction: {},
+        testMethod: {},
+        testArrowFunction: {},
+      },
     })
   })
 
@@ -125,16 +115,14 @@ describe('methodHandler', () => {
     }
     `
     tester(src, {
-      methods: [
-        {
-          name: 'testWithParam',
+      methods: {
+        testWithParam: {
           params: [{ name: 'param' }],
         },
-        {
-          name: 'testWithMultipleParams',
+        testWithMultipleParams: {
           params: [{ name: 'param1' }, { name: 'param2' }],
         },
-      ],
+      },
     })
   })
 
@@ -154,12 +142,11 @@ describe('methodHandler', () => {
     }
     `
     tester(src, {
-      methods: [
-        {
-          name: 'describedFunc',
+      methods: {
+        describedFunc: {
           description: 'it returns 2',
         },
-      ],
+      },
     })
   })
 
@@ -179,12 +166,11 @@ describe('methodHandler', () => {
     }
     `
     tester(src, {
-      methods: [
-        {
-          name: 'describedParams',
+      methods: {
+        describedParams: {
           params: [{ name: 'p1', description: 'multiplicateur', type: { name: 'string' } }],
         },
-      ],
+      },
     })
   })
 
@@ -205,15 +191,14 @@ describe('methodHandler', () => {
     }
     `
     tester(src, {
-      methods: [
-        {
-          name: 'describedParams',
+      methods: {
+        describedParams: {
           params: [
             { description: 'unnamed param', type: { name: 'string' } },
             { description: 'another unnamed param', type: { name: 'number' } },
           ],
         },
-      ],
+      },
     })
   })
 
@@ -234,15 +219,14 @@ describe('methodHandler', () => {
     }
     `
     tester(src, {
-      methods: [
-        {
-          name: 'describedParams',
+      methods: {
+        describedParams: {
           params: [
             { name: 'p', description: 'unnamed param', type: { name: 'string' } },
             { name: 'p2', description: 'another unnamed param', type: { name: 'number' } },
           ],
         },
-      ],
+      },
     })
   })
 
@@ -265,15 +249,14 @@ describe('methodHandler', () => {
       const def = parse(src)
       propHandler(documentation, def[0])
       expect(mockMethodDescriptor).toMatchObject({
-        methods: [
-          {
-            name: 'publicMethod',
+        methods: {
+          publicMethod: {
             params: [
               { name: 'param', type: { name: 'string' } },
               { name: 'paramObscure', type: { name: 'ObscureInterface' } },
             ],
           },
-        ],
+        },
       })
     })
 
@@ -295,12 +278,11 @@ describe('methodHandler', () => {
       const def = parse(src)
       propHandler(documentation, def[0])
       expect(mockMethodDescriptor).toMatchObject({
-        methods: [
-          {
-            name: 'publicMethod',
+        methods: {
+          publicMethod: {
             returns: { type: { name: 'string' } },
           },
-        ],
+        },
       })
     })
   })
@@ -323,15 +305,14 @@ describe('methodHandler', () => {
       const def = parseTS(src)
       propHandler(documentation, def[0])
       expect(mockMethodDescriptor).toMatchObject({
-        methods: [
-          {
-            name: 'publicMethod',
+        methods: {
+          publicMethod: {
             params: [
               { name: 'param', type: { name: 'string' } },
               { name: 'paramObscure', type: { name: 'ObscureInterface' } },
             ],
           },
-        ],
+        },
       })
     })
 
@@ -358,16 +339,14 @@ describe('methodHandler', () => {
       const def = parseTS(src)
       propHandler(documentation, def[0])
       expect(mockMethodDescriptor).toMatchObject({
-        methods: [
-          {
-            name: 'oneMethod',
+        methods: {
+          oneMethod: {
             returns: { type: { name: 'string' } },
           },
-          {
-            name: 'twoMethod',
+          twoMethod: {
             returns: { type: { name: 'number' } },
           },
-        ],
+        },
       })
     })
   })

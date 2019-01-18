@@ -42,7 +42,7 @@ describe('classPropHandler', () => {
           }
         }`
     tester(src, {
-      methods: [{ name: 'myMethod' }],
+      methods: { myMethod: {} },
     })
   })
 
@@ -58,7 +58,7 @@ describe('classPropHandler', () => {
           }
         }`
     tester(src, {
-      methods: [{ name: 'myMethod', params: [{ name: 'param1' }] }],
+      methods: { myMethod: { params: [{ name: 'param1' }] } },
     })
   })
 
@@ -74,7 +74,7 @@ describe('classPropHandler', () => {
           }
         }`
     tester(src, {
-      methods: [{ name: 'myMethod', params: [{ name: 'param1', type: { name: 'string' } }] }],
+      methods: { myMethod: { params: [{ name: 'param1', type: { name: 'string' } }] } },
     })
   })
 
@@ -90,7 +90,7 @@ describe('classPropHandler', () => {
           }
         }`
     tester(src, {
-      methods: [{ name: 'myMethod', returns: { type: { name: 'number' } } }],
+      methods: { myMethod: { returns: { type: { name: 'number' } } } },
     })
   })
 })

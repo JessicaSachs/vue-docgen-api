@@ -15,7 +15,7 @@ import getTypeFromAnnotation from '../utils/getTypeFromAnnotation'
 import transformTagsIntoObject from '../utils/transformTagsIntoObject'
 
 export default function methodHandler(documentation: Documentation, path: NodePath) {
-  const methods: MethodDescriptor[] = documentation.get('methods') || []
+  const methods: { [methodName: string]: MethodDescriptor } = documentation.get('methods') || {}
 
   if (path.isObjectExpression()) {
     const methodsPath = path
@@ -43,9 +43,9 @@ export default function methodHandler(documentation: Documentation, path: NodePa
         }
         if (p.isFunction()) {
           methodName = p.isObjectMethod() ? p.node.key.name : methodName
-          const doc = getMethodDescriptor(p, methodName)
+          const doc = getMethodDescriptor(p)
           if (doc) {
-            methods.push(doc)
+            methods[methodName] = doc
           }
         }
       })
@@ -54,11 +54,8 @@ export default function methodHandler(documentation: Documentation, path: NodePa
   documentation.set('methods', methods)
 }
 
-export function getMethodDescriptor(
-  method: NodePath<bt.Function>,
-  methodName: string,
-): MethodDescriptor | undefined {
-  const methodDescriptor: MethodDescriptor = { name: methodName, description: '', modifiers: [] }
+export function getMethodDescriptor(method: NodePath<bt.Function>): MethodDescriptor | undefined {
+  const methodDescriptor: MethodDescriptor = { description: '', modifiers: [] }
 
   const docBlock = getDocblock(
     method.isObjectMethod() || method.isClassMethod() ? method : method.parentPath,
@@ -101,7 +98,7 @@ function describeParams(
   }
 
   const params: Param[] = []
-  fExp.params.forEach((par: bt.Identifier, i) => {
+  fExp.params.forEach((par: bt.Identifier, i: number) => {
     const param: Param = { name: par.name }
 
     const jsDocTags = jsDocParamTags.filter((tag) => tag.name === param.name)

@@ -5,11 +5,10 @@ Object {
   "description": "Partial mapping, object spread operator example",
   "displayName": "example",
   "events": Object {},
-  "methods": Array [
-    Object {
+  "methods": Object {
+    "onSubmit": Object {
       "description": "Sets the order",
       "modifiers": Array [],
-      "name": "onSubmit",
       "params": Array [
         Object {
           "description": "Key to order",
@@ -67,7 +66,7 @@ Object {
         ],
       },
     },
-  ],
+  },
   "props": undefined,
   "slots": Object {},
   "tags": Object {},

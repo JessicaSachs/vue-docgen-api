@@ -34,7 +34,7 @@ describe('tests button', () => {
   })
 
   it('should not see the method without tag @public', () => {
-    expect(docButton.methods.length).toEqual(0)
+    expect(Object.keys(docButton.methods).length).toEqual(0)
   })
 
   it('should have props', () => {

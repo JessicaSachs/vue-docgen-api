@@ -24,11 +24,36 @@ Object {
       },
     },
   },
-  "methods": Array [
-    Object {
+  "methods": Object {
+    "publicMethod": Object {
+      "description": "",
+      "modifiers": Array [],
+      "params": Array [
+        Object {
+          "name": "test",
+          "type": Object {
+            "name": "number",
+          },
+        },
+        Object {
+          "name": "param",
+          "type": Object {
+            "name": "ForParam",
+          },
+        },
+      ],
+      "tags": Object {
+        "access": Array [
+          Object {
+            "description": "public",
+            "title": "access",
+          },
+        ],
+      },
+    },
+    "sortBy": Object {
       "description": "Sets the order",
       "modifiers": Array [],
-      "name": "sortBy",
       "params": Array [
         Object {
           "description": "Key to order",
@@ -85,34 +110,7 @@ Object {
         ],
       },
     },
-    Object {
-      "description": "",
-      "modifiers": Array [],
-      "name": "publicMethod",
-      "params": Array [
-        Object {
-          "name": "test",
-          "type": Object {
-            "name": "number",
-          },
-        },
-        Object {
-          "name": "param",
-          "type": Object {
-            "name": "ForParam",
-          },
-        },
-      ],
-      "tags": Object {
-        "access": Array [
-          Object {
-            "description": "public",
-            "title": "access",
-          },
-        ],
-      },
-    },
-  ],
+  },
   "props": Object {
     "columns": Object {
       "description": "get columns list",

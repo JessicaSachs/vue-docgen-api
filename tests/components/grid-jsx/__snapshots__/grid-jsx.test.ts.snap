@@ -24,11 +24,10 @@ Object {
       },
     },
   },
-  "methods": Array [
-    Object {
+  "methods": Object {
+    "sortBy": Object {
       "description": "Sets the order",
       "modifiers": Array [],
-      "name": "sortBy",
       "params": Array [
         Object {
           "description": "Key to order",
@@ -85,7 +84,7 @@ Object {
         ],
       },
     },
-  ],
+  },
   "props": Object {
     "columns": Object {
       "description": "get columns list",

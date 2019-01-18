@@ -106,7 +106,7 @@ describe('tests grid jsx', () => {
   })
 
   it('should define the return type of the first method', () => {
-    expect(docGrid.methods[0].returns).toMatchObject({ description: 'Test' })
+    expect(docGrid.methods.sortBy.returns).toMatchObject({ description: 'Test' })
   })
 
   it('should match the snapshot', () => {

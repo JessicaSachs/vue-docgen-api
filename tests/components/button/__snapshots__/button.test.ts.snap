@@ -39,7 +39,7 @@ Object {
       "type": undefined,
     },
   },
-  "methods": Array [],
+  "methods": Object {},
   "props": Object {
     "color": Object {
       "defaultValue": Object {

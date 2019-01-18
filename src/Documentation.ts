@@ -55,7 +55,6 @@ export interface PropDescriptor {
 }
 
 export interface MethodDescriptor {
-  name: string
   description: string
   returns?: UnnamedParam
   tags?: { [key: string]: BlockTag[] }
@@ -72,7 +71,7 @@ export interface SlotResult {
 export interface ComponentDoc {
   displayName: string
   props: { [propName: string]: PropDescriptor } | undefined
-  methods: MethodDescriptor[]
+  methods: { [methodName: string]: MethodDescriptor }
   slots: { [name: string]: SlotResult }
   events?: { [name: string]: EventDescriptor }
   [key: string]: any

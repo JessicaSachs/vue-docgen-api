@@ -5,7 +5,7 @@ Object {
   "description": "",
   "displayName": "MyButton",
   "events": Object {},
-  "methods": Array [],
+  "methods": Object {},
   "props": Object {
     "size": Object {
       "type": Object {

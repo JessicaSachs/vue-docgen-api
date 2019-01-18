@@ -5,7 +5,7 @@ import { getMethodDescriptor } from './methodHandler'
 
 export default function methodHandler(documentation: Documentation, path: NodePath) {
   if (path.isClassDeclaration()) {
-    const methods: MethodDescriptor[] = documentation.get('methods') || []
+    const methods: { [methodName: string]: MethodDescriptor } = documentation.get('methods') || []
     const allMethods = path
       .get('body')
       .get('body')
@@ -15,9 +15,9 @@ export default function methodHandler(documentation: Documentation, path: NodePa
       const methodName = bt.isIdentifier(methodPath.node.key)
         ? methodPath.node.key.name
         : '<anonymous>'
-      const doc = getMethodDescriptor(methodPath, methodName)
+      const doc = getMethodDescriptor(methodPath)
       if (doc) {
-        methods.push(doc)
+        methods[methodName] = doc
       }
     })
     documentation.set('methods', methods)

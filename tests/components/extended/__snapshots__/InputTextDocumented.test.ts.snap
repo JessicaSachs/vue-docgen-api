@@ -5,7 +5,7 @@ Object {
   "description": "Description InputTextDocumented",
   "displayName": "InputTextDocumented",
   "events": Object {},
-  "methods": Array [],
+  "methods": Object {},
   "props": Object {
     "placeholder": Object {
       "description": "",
